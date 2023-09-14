@@ -21,7 +21,42 @@ function Game() {
   const [clickedArr, setClickedArr] = useState([]);
   const [count, setCount] = useState(0);
 
-  document.getElementById("openModal").style.display = "block";
+  useEffect(() => {
+    function onstartup() {
+      document.getElementById("openModal").style.display = "block";
+    }
+    onstartup();
+  }, []);
+
+  function salir() {
+    const openmodal = document.getElementById("openModal");
+    openmodal.style.display = "none";
+  }
+
+  function exit() {
+    const mymodal = document.getElementById("myModal");
+    mymodal.style.display = "none";
+  }
+
+  function leave() {
+    const successmodal = document.getElementById("successModal");
+    successmodal.style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    const openmodal = document.getElementById("openModal");
+    const mymodal = document.getElementById("myModal");
+    const successmodal = document.getElementById("successModal");
+    if (
+      event.target == successmodal ||
+      event.target == mymodal ||
+      event.target == openmodal
+    ) {
+      successmodal.style.display = "none";
+      mymodal.style.display = "none";
+      openmodal.style.display = "none";
+    }
+  };
 
   const shuffleArray = (e) => {
     if (e.target.tagName === "IMG") {
@@ -53,35 +88,21 @@ function Game() {
     }
     if (count === 12) {
       document.getElementById("successModal").style.display = "block";
+      setCount(0);
     }
   }
-
-  var modal = document.getElementById("myModal");
-
-  function exit() {
-    modal.style.display = "none";
-  }
-
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  };
-
-  var modalsuccess = document.getElementById("successModal");
-
-  function leave() {
-    modalsuccess.style.display = "none";
-  }
-
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modalsuccess.style.display = "none";
-    }
-  };
 
   return (
     <div className={styles.allcontent}>
+      <div id="openModal" className={styles.modal}>
+        <div className={styles.modalcontent}>
+          <span onClick={salir} className={styles.close}>
+            &times;
+          </span>
+          <p>Hey!</p>
+        </div>
+      </div>
+
       <h1>Neopets Memory Game</h1>
       <h2>Current Count: {count}</h2>
       <section className={styles.images}>
