@@ -75,18 +75,12 @@ function Game() {
     setGameArr(shuffled);
   };
 
-  useEffect(() => {
-    console.log(clickedArr);
-  }, [clickedArr]);
-
-  for (let i = 0; i < clickedArr.length; i++) {
+  for (let i = 0; i < clickedArr.length - 1; i++) {
     if (clickedArr.indexOf(clickedArr[i]) !== i) {
       setCount(0);
       setClickedArr([]);
-
       document.getElementById("myModal").style.display = "block";
-    }
-    if (count === 12) {
+    } else if (count === 2) {
       document.getElementById("successModal").style.display = "block";
       setCount(0);
     }
@@ -95,45 +89,64 @@ function Game() {
   return (
     <div className={styles.allcontent}>
       <div id="openModal" className={styles.modal}>
+        <span onClick={salir} className={styles.close}>
+          &times;
+        </span>
         <div className={styles.modalcontent}>
-          <span onClick={salir} className={styles.close}>
-            &times;
-          </span>
-          <p>Hey!</p>
+          <div className={styles.headings}>
+            <h3>Oh no!!</h3>
+            <h4>
+              The Neopets wandered too far and became lost in the Haunted
+              Forest.
+            </h4>
+          </div>
+          <p className={styles.openModalWords}>
+            Save them by clicking each one ONCE before someone finds out they
+            are here.
+          </p>
         </div>
       </div>
 
       <h1>Neopets Memory Game</h1>
       <h2>Current Count: {count}</h2>
       <section className={styles.images}>
-        <img onClick={shuffleArray} className={styles.que} src={gameArr[0]} />
-        <img onClick={shuffleArray} src={gameArr[1]} />
-        <img onClick={shuffleArray} src={gameArr[2]} />
-        <img onClick={shuffleArray} src={gameArr[3]} />
-        <img onClick={shuffleArray} src={gameArr[4]} />
-        <img onClick={shuffleArray} src={gameArr[5]} />
-        <img onClick={shuffleArray} src={gameArr[6]} />
-        <img onClick={shuffleArray} src={gameArr[7]} />
-        <img onClick={shuffleArray} src={gameArr[8]} />
-        <img onClick={shuffleArray} src={gameArr[9]} />
-        <img onClick={shuffleArray} src={gameArr[10]} />
-        <img onClick={shuffleArray} src={gameArr[11]} />
+        <img onClick={shuffleArray} className={styles.pet} src={gameArr[0]} />
+        <img onClick={shuffleArray} className={styles.pet} src={gameArr[1]} />
+        <img onClick={shuffleArray} className={styles.pet} src={gameArr[2]} />
+        <img onClick={shuffleArray} className={styles.pet} src={gameArr[3]} />
+        <img onClick={shuffleArray} className={styles.pet} src={gameArr[4]} />
+        <img onClick={shuffleArray} className={styles.pet} src={gameArr[5]} />
+        <img onClick={shuffleArray} className={styles.pet} src={gameArr[6]} />
+        <img onClick={shuffleArray} className={styles.pet} src={gameArr[7]} />
+        <img onClick={shuffleArray} className={styles.pet} src={gameArr[8]} />
+        <img onClick={shuffleArray} className={styles.pet} src={gameArr[9]} />
+        <img onClick={shuffleArray} className={styles.pet} src={gameArr[10]} />
+        <img onClick={shuffleArray} className={styles.pet} src={gameArr[11]} />
       </section>
 
       <div id="myModal" className={styles.modal}>
-        <div className={styles.modalcontent}>
-          <span onClick={exit} className={styles.close}>
-            &times;
-          </span>
-          <p>Oh no! You lost.</p>
+        <span onClick={exit} className={styles.close}>
+          &times;
+        </span>
+        <div className={styles.modalcontentlose}>
+          <img
+            className={styles.evilThade}
+            src="https://i.ibb.co/YhNbr74/Screenshot-2023-09-14-at-4-15-42-PM-removebg-preview-1.png"
+          />
+          <h5>Oh no!</h5>
+          <p>Evil Thade found them!</p>
         </div>
+
+        {/* INCLUDE A SECOND LOSE SCENARIO FOR WHEN THE TIMER RUNS OUT */}
       </div>
       <div id="successModal" className={styles.modal}>
-        <div className={styles.modalcontent}>
-          <span onClick={leave} className={styles.close}>
-            &times;
-          </span>
-          <p>You won!</p>
+        <span onClick={leave} className={styles.close}>
+          &times;
+        </span>
+        <div className={styles.modalcontentwin}>
+          <h6>You saved them!</h6>
+     
+          <p className={styles.successwords}>Phew. Now they get to go home and rest.</p>
         </div>
       </div>
     </div>

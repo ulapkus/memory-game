@@ -1,17 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+
 .allcontent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5%;
+  /* padding: 5%; */
   height: 100%;
   width: 100%;
   background-image: url("https://cdn.wallpapersafari.com/98/44/l25orQ.png");
-}
-
-.background {
-  height: 100%;
-  width: 100%;
 }
 
 .images {
@@ -24,7 +21,6 @@
   row-gap: 25px;
   column-gap: 25px;
   padding-top: 20px;
-  
 }
 
 .modal {
@@ -33,21 +29,11 @@
   z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; 
+  width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-}
-
-.modalcontent {
-  background-color: #fefefe;
-  margin: 15% auto; 
-  padding: 20px;
-  border: 1px solid #888;
-  width: 40%; 
-  height: 20%;
-  border-radius: 10px;
-  border: 5px solid black;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-family: "Open Sans", sans-serif;
 }
 
 .close {
@@ -57,9 +43,106 @@
   font-weight: bold;
 }
 
+.modalcontent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background-color: ivory;
+  margin: 15% auto;
+  padding: 10px 45px 10px 45px;
+  width: 800px;
+  height: 310px;
+  border-radius: 20px;
+  border: 4px solid black;
+  box-shadow: 0 0 200px black;
+  text-align: center;
+  color: black;
+}
+
+.openModalWords {
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  margin: 0;
+}
+
 .close:hover,
 .close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.modalcontentlose {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: ivory;
+  margin: 15% auto;
+  padding: 0px;
+  line-height: 10px;
+
+  width: 600px;
+  height: 500px;
+
+  text-align: center;
+  font-size: 25px;
+  font-weight: bolder;
+  border-radius: 20px;
+  border: 4px solid black;
+  box-shadow: 0 0 200px black;
+}
+
+.pet {
+  border: 14px solid black;
+  box-shadow: 10px 10px 10px black;
+  outline: 8px solid rgb(249, 158, 55);
+  outline-offset: -10px;
+  border-style: double;
+  width: 230px;
+  height: 300px;
+  object-fit: scale-down;
+  background-color: ivory;
+  border-radius: 20px;
+}
+
+.evilThade {
+  width: 280px;
+  height: 350px;
+  /* object-fit: scale-down; */
+  /* border: 1px solid red; */
+  padding: 0;
+}
+
+.modalcontentwin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: ivory;
+  margin: 15% auto;
+  padding: 0px;
+
+  width: 650px;
+  height: 250px;
+
+  text-align: center;
+  font-size: 25px;
+  font-weight: bolder;
+  border-radius: 20px;
+  border: 4px solid black;
+  box-shadow: 0 0 200px black;
+}
+
+.successwords {
+  font-size: 30px;
+  font-weight: 300;
+
+  padding: 0 30px 0 30px;
+  margin: 0;
 }
