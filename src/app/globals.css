@@ -6,11 +6,6 @@
   box-sizing: border-box;
 }
 
-button {
-  width: 250px;
-  height: 250px;
-}
-
 html,
 body {
   width: 100%;
@@ -35,7 +30,6 @@ h2 {
   background-color: rgb(0, 0, 0, 0.5);
   border-radius: 10px;
   font-size: 25px;
-
 }
 
 h3 {
@@ -72,7 +66,11 @@ button {
   border-radius: 10px;
   color: ivory;
   font-family: "Open Sans", sans-serif;
-/* font-weight: bold; */
-font-size: 20px;
+  font-size: 20px;
+}
 
+button:hover {
+  background-color: ivory;
+  color: black;
+  cursor: pointer;
 }

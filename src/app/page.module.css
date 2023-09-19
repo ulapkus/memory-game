@@ -1,29 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 
-.allcontent {
+.all_content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding: 5%; */
   height: 100%;
   width: 100%;
-  background-image: url("https://cdn.wallpapersafari.com/98/44/l25orQ.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("https://cdn.wallpapersafari.com/98/44/l25orQ.png");
   background-size: cover;
 }
 
-.currentCount {
+.current_count {
   font-family: "PT Sans Caption", sans-serif;
   margin: 0;
   padding: 10px 15px 10px 15px;
   background-color: rgb(0, 0, 0, 0.5);
   border-radius: 10px;
   font-size: 25px;
-
 }
 
-.timeandcount {
+.time_and_count {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -43,11 +42,16 @@
   margin: 20px 0 0 0;
 }
 
-.headingPlusNewGame {
+.newgame:hover {
+  background-color: ivory;
+  color: black;
+  cursor: pointer;
+}
+
+.heading_and_newgame {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* border: 1px solid pink; */
   width: 100%;
   padding: 0 120px 30px 310px;
 }
@@ -63,12 +67,16 @@
   padding-top: 20px;
 }
 
+.neopet_img:hover {
+  transform: scale(1.1);
+}
+
 .modal {
   display: none;
   position: fixed;
   z-index: 1;
-  left: 0;
-  top: 0;
+  /* left: 0;
+  top: 0; */
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -76,14 +84,7 @@
   font-family: "Open Sans", sans-serif;
 }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.modalcontent {
+.intro_modal {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -101,29 +102,20 @@
   color: black;
 }
 
-.openModalWords {
+.intro_modal_words {
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
   margin: 0;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modalcontentlose {
+.modal_lose {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* gap: 10px; */
   background-color: ivory;
   margin: 10% auto;
-  /* padding: 0 0 40px 0; */
   width: 700px;
   height: 570px;
   text-align: center;
@@ -134,7 +126,7 @@
   box-shadow: 0 0 200px black;
 }
 
-.pet {
+.neopet_img {
   border: 14px solid black;
   box-shadow: 10px 10px 10px black;
   outline: 8px solid rgb(249, 158, 55);
@@ -145,36 +137,42 @@
   object-fit: scale-down;
   background-color: ivory;
   border-radius: 20px;
+  transition: transform 0.2s;
 }
 
-.evilThade {
+.evil_thade {
   width: 280px;
   height: 350px;
   padding: 0;
 }
 
-.modalcontentwin {
+.modal_win {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 20px;
   background-color: ivory;
   margin: 15% auto;
-  padding: 0px;
-  width: 650px;
-  height: 250px;
+  padding: 10px 0 0 0;
+  width: 670px;
+  height: 300px;
   text-align: center;
-  font-size: 25px;
   font-weight: bolder;
   border-radius: 20px;
   border: 4px solid black;
   box-shadow: 0 0 200px black;
 }
 
-.successwords {
-  font-size: 30px;
+.success_words {
+  line-height: 20px;
+  font-size: 25px;
   font-weight: 300;
-  padding: 0 30px 0 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.faster {
+  font-size: 20px;
+  padding: 10px;
   margin: 0;
 }
