@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 
 .allcontent {
   display: flex;
@@ -9,6 +10,46 @@
   height: 100%;
   width: 100%;
   background-image: url("https://cdn.wallpapersafari.com/98/44/l25orQ.png");
+  background-size: cover;
+}
+
+.currentCount {
+  font-family: "PT Sans Caption", sans-serif;
+  margin: 0;
+  padding: 10px 15px 10px 15px;
+  background-color: rgb(0, 0, 0, 0.5);
+  border-radius: 10px;
+  font-size: 25px;
+
+}
+
+.timeandcount {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+  color: ivory;
+  padding-bottom: 20px;
+}
+
+.newgame {
+  color: ivory;
+  font-size: 20px;
+  font-family: "PT Sans Caption", sans-serif;
+  padding: 8px 10px 8px 10px;
+  background-color: rgb(0, 0, 0, 0.5);
+  border-radius: 10px;
+  margin: 20px 0 0 0;
+}
+
+.headingPlusNewGame {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* border: 1px solid pink; */
+  width: 100%;
+  padding: 0 120px 30px 310px;
 }
 
 .images {
@@ -17,7 +58,6 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  /* border: 1px solid red; */
   row-gap: 25px;
   column-gap: 25px;
   padding-top: 20px;
@@ -80,15 +120,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; */
   background-color: ivory;
-  margin: 15% auto;
-  padding: 0px;
-  line-height: 10px;
-
-  width: 600px;
-  height: 500px;
-
+  margin: 10% auto;
+  /* padding: 0 0 40px 0; */
+  width: 700px;
+  height: 570px;
   text-align: center;
   font-size: 25px;
   font-weight: bolder;
@@ -113,8 +150,6 @@
 .evilThade {
   width: 280px;
   height: 350px;
-  /* object-fit: scale-down; */
-  /* border: 1px solid red; */
   padding: 0;
 }
 
@@ -127,10 +162,8 @@
   background-color: ivory;
   margin: 15% auto;
   padding: 0px;
-
   width: 650px;
   height: 250px;
-
   text-align: center;
   font-size: 25px;
   font-weight: bolder;
@@ -142,7 +175,6 @@
 .successwords {
   font-size: 30px;
   font-weight: 300;
-
   padding: 0 30px 0 30px;
   margin: 0;
 }

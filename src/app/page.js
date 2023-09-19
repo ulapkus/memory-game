@@ -20,6 +20,38 @@ function Game() {
   ]);
   const [clickedArr, setClickedArr] = useState([]);
   const [count, setCount] = useState(0);
+  const [timerIsRunning, setTimerIsRunning] = useState(false);
+  const [time, setTime] = useState(60);
+
+  React.useEffect(() => {
+    let interval;
+    if (timerIsRunning) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime - 1);
+      }, 1000);
+    }
+    if (timerIsRunning === false) {
+      // setCount(0);
+      // setTime(60);
+      clearInterval(interval);
+    }
+
+    if (timerIsRunning && time === 0) {
+      document.getElementById("myModal").style.display = "block";
+      setTimerIsRunning(false);
+      clearInterval(interval);
+      // setCount(0);
+      // setTime(60);
+    }
+
+    if (count === 12) {
+      clearInterval(interval);
+    }
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [timerIsRunning, time, count]);
 
   useEffect(() => {
     function onstartup() {
@@ -36,6 +68,20 @@ function Game() {
   function exit() {
     const mymodal = document.getElementById("myModal");
     mymodal.style.display = "none";
+  }
+
+  function tryagain() {
+    const mymodal = document.getElementById("myModal");
+    mymodal.style.display = "none";
+    setCount(0);
+    setTime(60);
+    setTimerIsRunning(true);
+  }
+
+  function newgame() {
+    setCount(0);
+    setTime(60);
+    setTimerIsRunning(true);
   }
 
   function leave() {
@@ -59,6 +105,7 @@ function Game() {
   };
 
   const shuffleArray = (e) => {
+    setTimerIsRunning(true);
     if (e.target.tagName === "IMG") {
       setClickedArr((prevClickedArr) => [
         ...prevClickedArr,
@@ -73,18 +120,22 @@ function Game() {
 
     setCount((prevCount) => prevCount + 1);
     setGameArr(shuffled);
-  };
 
-  for (let i = 0; i < clickedArr.length - 1; i++) {
-    if (clickedArr.indexOf(clickedArr[i]) !== i) {
-      setCount(0);
+    if (clickedArr.indexOf(e.target.getAttribute("src")) !== -1) {
+      setCount((prevCount) => prevCount - 1);
+
+      setTimerIsRunning(false);
       setClickedArr([]);
       document.getElementById("myModal").style.display = "block";
-    } else if (count === 2) {
-      document.getElementById("successModal").style.display = "block";
-      setCount(0);
     }
-  }
+  };
+
+  React.useEffect(() => {
+    if (count === 12) {
+      document.getElementById("successModal").style.display = "block";
+      setTimerIsRunning(false);
+    }
+  }, [timerIsRunning, time, count]);
 
   return (
     <div className={styles.allcontent}>
@@ -106,9 +157,15 @@ function Game() {
           </p>
         </div>
       </div>
-
+      <div className={styles.headingPlusNewGame}>
       <h1>Neopets Memory Game</h1>
-      <h2>Current Count: {count}</h2>
+      <p className={styles.newgame} onClick={newgame}>New Game</p>
+      </div>
+      <div className={styles.timeandcount}>
+        <h2>Time left: {time} seconds</h2>
+        <p className={styles.currentCount}>Neopets rescued: {count}</p>
+      </div>
+
       <section className={styles.images}>
         <img onClick={shuffleArray} className={styles.pet} src={gameArr[0]} />
         <img onClick={shuffleArray} className={styles.pet} src={gameArr[1]} />
@@ -133,20 +190,21 @@ function Game() {
             className={styles.evilThade}
             src="https://i.ibb.co/YhNbr74/Screenshot-2023-09-14-at-4-15-42-PM-removebg-preview-1.png"
           />
-          <h5>Oh no!</h5>
-          <p>Evil Thade found them!</p>
+          <h5>Evil Thade found them!</h5>
+          <p>You only saved {count} Neopet(s).</p>
+          <button onClick={tryagain}>Try Again</button>
         </div>
-
-        {/* INCLUDE A SECOND LOSE SCENARIO FOR WHEN THE TIMER RUNS OUT */}
       </div>
       <div id="successModal" className={styles.modal}>
         <span onClick={leave} className={styles.close}>
           &times;
         </span>
         <div className={styles.modalcontentwin}>
-          <h6>You saved them!</h6>
-     
-          <p className={styles.successwords}>Phew. Now they get to go home and rest.</p>
+          <h6>You saved them all! </h6>
+
+          <p className={styles.successwords}>
+            Phew. Now they get to go home and rest.
+          </p>
         </div>
       </div>
     </div>
