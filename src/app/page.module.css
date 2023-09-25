@@ -6,20 +6,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  min-height: 150%;
   width: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("https://cdn.wallpapersafari.com/98/44/l25orQ.png");
   background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 
 .current_count {
   font-family: "PT Sans Caption", sans-serif;
   margin: 0;
-  padding: 10px 15px 10px 15px;
+  padding: 10px 15px 13px 15px;
   background-color: rgb(0, 0, 0, 0.5);
   border-radius: 10px;
-  font-size: 25px;
+  font-size: 2.6vh;
 }
 
 .time_and_count {
@@ -27,17 +29,17 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 150px;
+  gap: 10vw;
   color: ivory;
-  padding-bottom: 20px;
+  padding-bottom: 2%;
 }
 
 .newgame {
   color: ivory;
-  font-size: 20px;
+  font-size: 2.3vh;
   font-family: "PT Sans Caption", sans-serif;
-  padding: 8px 10px 8px 10px;
-  background-color: rgb(0, 0, 0, 0.5);
+  padding: 9px 17px 11px 17px;
+  background-color: rgb(0, 0, 0, 0.4);
   border-radius: 10px;
   margin: 20px 0 0 0;
 }
@@ -53,18 +55,22 @@
   flex-direction: row;
   align-items: center;
   width: 100%;
-  padding: 0 120px 30px 310px;
+  text-align: center;
+  padding: 2% 0 2% 18.2%;
 }
 
 .images {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  row-gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+  grid-row-gap: 5%;
+  /* row-gap: 25px;
   column-gap: 25px;
-  padding-top: 20px;
+  /* border: 1px solid red; */
+  width: 70%;
+  height: 100%;
+  margin: 0 0 10% 0;
+  padding: 0;
+  place-items: center;
 }
 
 .neopet_img:hover {
@@ -75,10 +81,11 @@
   display: none;
   position: fixed;
   z-index: 1;
-  /* left: 0;
-  top: 0; */
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
+  padding-top: 3.5%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.6);
   font-family: "Open Sans", sans-serif;
@@ -89,12 +96,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 4.3vh;
   background-color: ivory;
-  margin: 15% auto;
-  padding: 10px 45px 10px 45px;
-  width: 800px;
-  height: 310px;
+  margin: 11% auto;
+  padding: 4vh 4vw 4vh 4vw;
+  width: 42vw;
+  height: 48vh;
   border-radius: 20px;
   border: 4px solid black;
   box-shadow: 0 0 200px black;
@@ -105,7 +112,7 @@
 .intro_modal_words {
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
-  font-size: 20px;
+  font-size: 3.15vh;
   margin: 0;
 }
 
@@ -114,16 +121,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* gap: 3vh; */
   background-color: ivory;
-  margin: 10% auto;
-  width: 700px;
-  height: 570px;
+  margin: 7% auto;
+  width: 40vw;
+  height: 61vh;
   text-align: center;
-  font-size: 25px;
+  font-size: 3.3vh;
   font-weight: bolder;
   border-radius: 20px;
   border: 4px solid black;
   box-shadow: 0 0 200px black;
+  padding: 33px 0 33px 0;
+}
+
+
+.modal_lose_words {
+  padding: 1.5vh 0 1.5vh 0;
+  margin: 0;
 }
 
 .neopet_img {
@@ -132,30 +147,36 @@
   outline: 8px solid rgb(249, 158, 55);
   outline-offset: -10px;
   border-style: double;
-  width: 230px;
-  height: 300px;
+  width: 15vw;
+  height: 34vh;
   object-fit: scale-down;
   background-color: ivory;
   border-radius: 20px;
   transition: transform 0.2s;
+  margin: 0;
+  padding: 0;
 }
 
 .evil_thade {
-  width: 280px;
-  height: 350px;
-  padding: 0;
+  /* width: 300px;
+  height: 300px; */
+  width: 20vw;
+  height: 38vh;
+padding: 0;
+  margin:-15px;
+  object-fit:contain;
 }
 
 .modal_win {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: ivory;
-  margin: 15% auto;
-  padding: 10px 0 0 0;
-  width: 670px;
-  height: 300px;
+  margin: 10% auto;
+  padding: 2.2vh 0 3.5vh 0;
+  width: 43vw;
+  height: 44vh;
   text-align: center;
   font-weight: bolder;
   border-radius: 20px;
@@ -164,15 +185,20 @@
 }
 
 .success_words {
-  line-height: 20px;
-  font-size: 25px;
+  /* line-height: 20px; */
+  font-size: 3.2vh;
   font-weight: 300;
   margin: 0;
   padding: 0;
 }
 
+.success_words_individual {
+  padding: 1vh;
+  margin: 0;
+}
+
 .faster {
-  font-size: 20px;
-  padding: 10px;
+  font-size: 3.1vh;
+  padding: 3vh 0 3vh 0;
   margin: 0;
 }

@@ -9,12 +9,12 @@ function Game() {
     "https://pets.neopets.com/cp/2wsqgt78/1/7.png",
     "https://pets.neopets.com/cp/nwx8v2rb/1/4.png",
     "https://pets.neopets.com/cp/sk22m495/1/7.png",
-    "https://pets.neopets.com/cp/lcx49td5/1/4.png",
+    "https://pets.neopets.com/cp/qn8kjbwf/1/4.png",
     "https://pets.neopets.com/cp/rfsbh59t/1/5.png",
     "https://pets.neopets.com/cp/dnr2kj4b/1/4.png",
-    "https://pets.neopets.com/cp/bkqnjzq6/1/4.png",
-    "https://pets.neopets.com/cp/zbqv7t5z/1/7.png",
-    "https://pets.neopets.com/cp/8msdcx58/1/4.png",
+    "https://pets.neopets.com/cp/v79jtf2c/1/4.png",
+    "https://pets.neopets.com/cp/9dq8hcr2/1/4.png",
+    "https://pets.neopets.com/cp/vrcgjm3q/1/4.png",
     "https://pets.neopets.com/cp/c39wz4r9/1/7.png",
     "https://pets.neopets.com/cp/kfonqhdc/1/7.png",
   ]);
@@ -111,7 +111,7 @@ function Game() {
   };
 
   React.useEffect(() => {
-    if (count === 12) {
+    if (count === 2) {
       document.getElementById("successModal").style.display = "block";
       setTimerIsRunning(false);
       const secondsleft = time;
@@ -125,74 +125,86 @@ function Game() {
   };
 
   return (
-    <section className={styles.all_content}>
-      <section id="openModal" className={styles.modal}>
-        <div className={styles.intro_modal}>
-          <div className={styles.headings}>
-            <h3>Oh no!!</h3>
-            <h4>
-              The Neopets wandered too far and became lost in the Haunted
-              Forest.
-            </h4>
+    <div>
+      <section className={styles.all_content}>
+        <section id="openModal" className={styles.modal}>
+          <div className={styles.intro_modal}>
+            <div className={styles.headings}>
+              <h3>Oops!</h3>
+              <h4>
+                The Neopets wandered too far and became lost in the Haunted
+                Forest.
+              </h4>
+            </div>
+            <p className={styles.intro_modal_words}>
+              Save them by clicking each one ONCE before someone finds out they
+              are here.
+            </p>
+            <button onClick={exit}>Begin</button>
           </div>
-          <p className={styles.intro_modal_words}>
-            Save them by clicking each one ONCE before someone finds out they
-            are here.
+        </section>
+        <div className={styles.heading_and_newgame}>
+          <h1>Neopets Memory Game</h1>
+          <p className={styles.newgame} onClick={newgame}>
+            New Game
           </p>
-          <button onClick={exit}>Begin</button>
         </div>
-      </section>
-      <div className={styles.heading_and_newgame}>
-        <h1>Neopets Memory Game</h1>
-        <p className={styles.newgame} onClick={newgame}>
-          New Game
-        </p>
-      </div>
-      <div className={styles.time_and_count}>
-        <h2>Time left: {time} seconds</h2>
-        <p className={styles.current_count}>Neopets rescued: {count}</p>
-      </div>
+        <div className={styles.time_and_count}>
+          <h2>Time left: {time} seconds</h2>
+          <p className={styles.current_count}>Neopets rescued: {count}</p>
+        </div>
 
-      <section className={styles.images} onClick={shuffleArray}>
-        <img className={styles.neopet_img} src={gameArr[0]} />
-        <img className={styles.neopet_img} src={gameArr[1]} />
-        <img className={styles.neopet_img} src={gameArr[2]} />
-        <img className={styles.neopet_img} src={gameArr[3]} />
-        <img className={styles.neopet_img} src={gameArr[4]} />
-        <img className={styles.neopet_img} src={gameArr[5]} />
-        <img className={styles.neopet_img} src={gameArr[6]} />
-        <img className={styles.neopet_img} src={gameArr[7]} />
-        <img className={styles.neopet_img} src={gameArr[8]} />
-        <img className={styles.neopet_img} src={gameArr[9]} />
-        <img className={styles.neopet_img} src={gameArr[10]} />
-        <img className={styles.neopet_img} src={gameArr[11]} />
-      </section>
+        <section className={styles.images} onClick={shuffleArray}>
+          <img className={styles.neopet_img} src={gameArr[0]} />
+          <img className={styles.neopet_img} src={gameArr[1]} />
+          <img className={styles.neopet_img} src={gameArr[2]} />
+          <img className={styles.neopet_img} src={gameArr[3]} />
+          <img className={styles.neopet_img} src={gameArr[4]} />
+          <img className={styles.neopet_img} src={gameArr[5]} />
+          <img className={styles.neopet_img} src={gameArr[6]} />
+          <img className={styles.neopet_img} src={gameArr[7]} />
+          <img className={styles.neopet_img} src={gameArr[8]} />
+          <img className={styles.neopet_img} src={gameArr[9]} />
+          <img className={styles.neopet_img} src={gameArr[10]} />
+          <img className={styles.neopet_img} src={gameArr[11]} />
+        </section>
 
-      <section id="loseModal" className={styles.modal} onClick={begintimer}>
-        <div className={styles.modal_lose}>
-          <img
-            className={styles.evil_thade}
-            src="https://i.ibb.co/YhNbr74/Screenshot-2023-09-14-at-4-15-42-PM-removebg-preview-1.png"
-          />
-          <h5>Evil Thade found them!</h5>
-          <p>You only saved {count} Neopet(s).</p>
-          <button onClick={tryagain}>Try Again</button>
-        </div>
-      </section>
-      <section id="successModal" className={styles.modal}>
-        <div className={styles.modal_win}>
-          <h6>You saved them all! </h6>
-          <div className={styles.success_words}>
-            <p>And it only took you {howfast} seconds.</p>
-            <p>Phew. Now they get to go home and rest.</p>
+        <section id="loseModal" className={styles.modal} onClick={begintimer}>
+          <div className={styles.modal_lose}>
+            <div className={styles.lose_all}>
+              <img
+                className={styles.evil_thade}
+                src="https://i.ibb.co/YhNbr74/Screenshot-2023-09-14-at-4-15-42-PM-removebg-preview-1.png"
+              />
+              <div className={styles.modal_lose_all_words}>
+                <h5>Evil Thade found them!</h5>
+                <p className={styles.modal_lose_words}>
+                  You only saved {count} Neopet(s).
+                </p>
+                <button onClick={tryagain}>Try Again</button>
+              </div>
+            </div>
           </div>
-          <div>
-            <p className={styles.faster}>Think you can do faster?</p>
-            <button onClick={leave}>Try Again</button>
+        </section>
+        <section id="successModal" className={styles.modal}>
+          <div className={styles.modal_win}>
+            <h6>You saved them all! </h6>
+            <div className={styles.success_words}>
+              <p className={styles.success_words_individual}>
+                And it only took you {howfast} seconds.
+              </p>
+              <p className={styles.success_words_individual}>
+                Phew. Now they get to go home and rest.
+              </p>
+            </div>
+            <div>
+              <p className={styles.faster}>Think you can do faster?</p>
+              <button onClick={leave}>Try Again</button>
+            </div>
           </div>
-        </div>
+        </section>
       </section>
-    </section>
+    </div>
   );
 }
 
