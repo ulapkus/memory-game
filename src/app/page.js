@@ -11,7 +11,7 @@ function Game() {
     "https://pets.neopets.com/cp/sk22m495/1/7.png",
     "https://pets.neopets.com/cp/qn8kjbwf/1/4.png",
     "https://pets.neopets.com/cp/rfsbh59t/1/5.png",
-    "https://pets.neopets.com/cp/dnr2kj4b/1/4.png",
+    "https://pets.neopets.com/cp/g48kdbqq/1/4.png",
     "https://pets.neopets.com/cp/v79jtf2c/1/4.png",
     "https://pets.neopets.com/cp/9dq8hcr2/1/4.png",
     "https://pets.neopets.com/cp/vrcgjm3q/1/4.png",
