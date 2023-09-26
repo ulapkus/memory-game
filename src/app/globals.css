@@ -69,6 +69,7 @@ button {
   color: ivory;
   font-family: "Open Sans", sans-serif;
   font-size: 2.1vh;
+  border: black;
 
 }
 
@@ -76,4 +77,5 @@ button:hover {
   background-color: ivory;
   color: black;
   cursor: pointer;
+  border: 1.5px solid gray;
 }

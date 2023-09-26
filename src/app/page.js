@@ -111,7 +111,7 @@ function Game() {
   };
 
   React.useEffect(() => {
-    if (count === 2) {
+    if (count === 12) {
       document.getElementById("successModal").style.display = "block";
       setTimerIsRunning(false);
       const secondsleft = time;
