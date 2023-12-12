@@ -53,19 +53,17 @@
 .heading_and_newgame {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   width: 100%;
   text-align: center;
-  padding: 2% 0 2% 18.2%;
+  padding: 2% 0 2% 11.5%;
 }
 
 .images {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
   grid-row-gap: 5%;
-  /* row-gap: 25px;
-  column-gap: 25px;
-  /* border: 1px solid red; */
   width: 70%;
   height: 100%;
   margin: 0 0 10% 0;
@@ -121,7 +119,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* gap: 3vh; */
   background-color: ivory;
   margin: 7% auto;
   width: 40vw;
@@ -134,7 +131,6 @@
   box-shadow: 0 0 200px black;
   padding: 33px 0 33px 0;
 }
-
 
 .modal_lose_words {
   padding: 1.5vh 0 1.5vh 0;
@@ -158,13 +154,11 @@
 }
 
 .evil_thade {
-  /* width: 300px;
-  height: 300px; */
   width: 20vw;
   height: 38vh;
-padding: 0;
-  margin:-15px;
-  object-fit:contain;
+  padding: 0;
+  margin: -15px;
+  object-fit: contain;
 }
 
 .modal_win {
@@ -185,7 +179,6 @@ padding: 0;
 }
 
 .success_words {
-  /* line-height: 20px; */
   font-size: 3.2vh;
   font-weight: 300;
   margin: 0;
