@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a memory card game inspired by www.neopets.com. The goal is to help the Neopets get through the Haunted Forest safely by clicking on as many of the different Neopets before the time runs out without repeating any.
+
+Link to project: neopets-game.vercel.app
+
+![Alt text](/public/screenshot.png "Optional title")
 
 ## Getting Started
 
