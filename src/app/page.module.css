@@ -52,6 +52,13 @@
   font-size: 2.6vh;
 }
 
+.newgame_medium {
+  color: ivory;
+  font-size: 2.3vh;
+  padding: 9px 17px 11px 17px;
+  margin: 20px 0 0 0;
+}
+
 .newgame {
   color: ivory;
   font-size: 2.3vh;
@@ -200,6 +207,8 @@
   width: 15vw;
   height: 30vh;
   /* object-fit: cover; */
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+
   transition: transform 0.2s;
   margin: 0;
   padding: 0;
@@ -258,4 +267,15 @@
   font-size: 3.1vh;
   padding: 3vh 0 3vh 0;
   margin: 0;
+}
+
+.difficulty_page {
+  font-size: 3.5vh;
+  font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
+.buttons_page {
+  margin: 0 1vw 0 1vw;
 }
