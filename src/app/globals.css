@@ -18,7 +18,8 @@ body {
 h1 {
   font-size: 12vh;
   color: ivory;
-  font-family: "Lilita One", cursive;
+  font-family: "Times New Roman", Times, serif;
+  /* background-color: rgba(0, 0, 0, 0.198); */
   margin: 0;
   text-align: center;
   padding-right: 3%;
@@ -70,7 +71,6 @@ button {
   font-family: "Open Sans", sans-serif;
   font-size: 2.1vh;
   border: black;
-
 }
 
 button:hover {

@@ -8,8 +8,8 @@
   align-items: center;
   min-height: 150%;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("https://cdn.wallpapersafari.com/98/44/l25orQ.png");
+
+  background-image: url("https://imagetolink.com/ib/WB2jQFr6SL.jpg");
   background-size: cover;
   margin: 0;
   padding: 0;
@@ -24,6 +24,14 @@
   font-size: 2.6vh;
 }
 
+.current_count_medium {
+  font-family: "PT Sans Caption", sans-serif;
+  margin: 0;
+  padding: 10px 15px 13px 15px;
+  font-size: 2.6vh;
+  color: black;
+}
+
 .time_and_count {
   display: flex;
   flex-direction: row;
@@ -32,6 +40,16 @@
   gap: 10vw;
   color: ivory;
   padding-bottom: 2%;
+}
+
+.time_medium {
+  color: black;
+  font-family: "PT Sans Caption", sans-serif;
+  margin: 0;
+  padding: 10px 15px 13px 15px;
+  /* background-color: rgb(0, 0, 0, 0.5); */
+  /* border-radius: 10px; */
+  font-size: 2.6vh;
 }
 
 .newgame {
@@ -57,7 +75,19 @@
   align-items: center;
   width: 100%;
   text-align: center;
-  padding: 2% 0 2% 11.5%;
+  padding: 2% 0 0 11.5%;
+  /* border: 1px solid blue; */
+}
+
+.images_easy {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+  grid-row-gap: 5%;
+  width: 70%;
+  height: 70%;
+  margin: 0 0 10% 0;
+  padding: 0;
+  place-items: center;
 }
 
 .images {
@@ -71,7 +101,8 @@
   place-items: center;
 }
 
-.neopet_img:hover {
+.neopet_img:hover,
+.neopet_img_medium:hover {
   transform: scale(1.1);
 }
 
@@ -96,10 +127,10 @@
   align-items: center;
   gap: 4.3vh;
   background-color: ivory;
-  margin: 11% auto;
+  margin: 7% auto;
   padding: 4vh 4vw 4vh 4vw;
-  width: 42vw;
-  height: 48vh;
+  width: 46vw;
+  height: 60vh;
   border-radius: 20px;
   border: 4px solid black;
   box-shadow: 0 0 200px black;
@@ -114,52 +145,85 @@
   margin: 0;
 }
 
+.intro_modal_words_two {
+  font-size: 2.5vh;
+  font-weight: 500;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
+.button_intro {
+  width: 7.8vw;
+  height: 5.5vh;
+  background-color: black;
+  border-radius: 10px;
+  color: ivory;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.1vh;
+  border: black;
+}
+
 .modal_lose {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: ivory;
-  margin: 7% auto;
-  width: 40vw;
-  height: 61vh;
+  margin: 10% auto;
+  width: 43vw;
+  height: 40vh;
   text-align: center;
   font-size: 3.3vh;
   font-weight: bolder;
   border-radius: 20px;
-  border: 4px solid black;
+  border: 4px solid rgba(0, 0, 0, 0.901);
   box-shadow: 0 0 200px black;
-  padding: 33px 0 33px 0;
+  /* padding: 33px 0 33px 0; */
 }
 
-.modal_lose_words {
-  padding: 1.5vh 0 1.5vh 0;
-  margin: 0;
-}
-
-.neopet_img {
-  border: 14px solid black;
-  box-shadow: 10px 10px 10px black;
-  outline: 8px solid rgb(249, 158, 55);
-  outline-offset: -10px;
-  border-style: double;
+.neopet_img_easy {
+  /* border: 14px solid black; */
+  /* box-shadow: 10px 10px 10px black; */
+  /* outline: 8px solid rgb(249, 158, 55); */
+  /* outline-offset: -10px; */
+  /* border-style: double; */
   width: 15vw;
-  height: 34vh;
+  height: 28vh;
   object-fit: scale-down;
-  background-color: ivory;
-  border-radius: 20px;
+  /* background-color: ivory; */
   transition: transform 0.2s;
   margin: 0;
   padding: 0;
 }
 
-.evil_thade {
+.neopet_img_medium {
+  width: 15vw;
+  height: 30vh;
+  /* object-fit: cover; */
+  transition: transform 0.2s;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+}
+
+.neopet_img {
+  /* box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); */
+  width: 15vw;
+  height: 34vh;
+  object-fit: cover;
+  transition: transform 0.2s;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+}
+
+/* .evil_thade {
   width: 20vw;
   height: 38vh;
   padding: 0;
   margin: -15px;
   object-fit: contain;
-}
+} */
 
 .modal_win {
   display: flex;
