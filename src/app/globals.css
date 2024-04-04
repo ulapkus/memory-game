@@ -12,14 +12,13 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #101c28;
+  background-color: #ac9783;
 }
 
 h1 {
   font-size: 12vh;
   color: ivory;
   font-family: "Times New Roman", Times, serif;
-  /* background-color: rgba(0, 0, 0, 0.198); */
   margin: 0;
   text-align: center;
   padding-right: 3%;
@@ -36,14 +35,14 @@ h2 {
 }
 
 h3 {
-  font-size: 5.4vh;
+  font-size: 4vh;
   font-weight: 700;
   font-family: "Open Sans", sans-serif;
   margin: 0;
 }
 
 h4 {
-  font-size: 3.15vh;
+  font-size: 3vh;
   font-weight: 500;
   font-family: "Open Sans", sans-serif;
   margin: 0;

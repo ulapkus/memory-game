@@ -11,12 +11,6 @@ export const ModalContext = React.createContext();
 
 function Game() {
   const [gameArrHard, setGameArrHard] = useState([
-    // "https://imagetolink.com/ib/AZnQhJmJZ7.png",
-    // "https://imagetolink.com/ib/4pJgH2eYfJ.png",
-
-    // "https://imagetolink.com/ib/f7kXVMTxqa.png",
-    // "https://imagetolink.com/ib/Em5Vse71iC.png",
-    // "https://imagetolink.com/ib/Xy0K1LDu7L.png",
     "https://imagetolink.com/ib/hG4ledtobm.png",
     "https://imagetolink.com/ib/T4A0n1Jc9k.png",
     "https://imagetolink.com/ib/5hdb0TKwOt.png",
@@ -53,7 +47,7 @@ function Game() {
   const [timerIsRunning, setTimerIsRunning] = useState(false);
   const [time, setTime] = useState(60);
   const [howfast, setHowfast] = useState(0);
-  const [gameMode, setGameMode] = useState("medium");
+  const [gameMode, setGameMode] = useState("hard");
 
   React.useEffect(() => {
     let interval;
@@ -87,49 +81,14 @@ function Game() {
     onstartup();
   }, []);
 
-  function exit() {
-    const openmodal = document.getElementById("openModal");
-    openmodal.style.display = "none";
-    setTimerIsRunning(true);
-  }
-
-  const submitMode = (mode) => {
-    setGameMode(mode);
-    const modemodal = document.getElementById("modeModal");
-    modemodal.style.display = "none";
-    setTimerIsRunning(true);
-  };
-
-  function tryagain() {
-    const losemodal = document.getElementById("loseModal");
-    losemodal.style.display = "none";
-    setCount(0);
-    setTime(60);
-    setTimerIsRunning(true);
-  }
-
   function newgame() {
+    document.getElementById("openModal").style.display = "block";
     setCount(0);
     setTime(60);
     setTimerIsRunning(true);
   }
 
-  function chooseMode() {
-    document.getElementById("modeModal").style.display = "block";
-    setCount(0);
-    setTime(60);
-    setTimerIsRunning(false);
-  }
-
-  function leave() {
-    const successmodal = document.getElementById("successModal");
-    successmodal.style.display = "none";
-    setCount(0);
-    setTime(60);
-    setTimerIsRunning(true);
-  }
-
-  const shuffleArrayHard = (e) => {
+  const shuffleArray = (e, difficulty) => {
     if (e.target.tagName === "IMG") {
       setClickedArr((prevClickedArr) => [
         ...prevClickedArr,
@@ -137,66 +96,40 @@ function Game() {
       ]);
     }
 
-    const shuffled = [...gameArrHard];
-    for (let i = gameArrHard.length - 1; i > 0; i--) {
+    let shuffled;
+    switch (difficulty) {
+      case "easy":
+        shuffled = [...gameArrEasy];
+        break;
+      case "medium":
+        shuffled = [...gameArrMedium];
+        break;
+      case "hard":
+        shuffled = [...gameArrHard];
+        break;
+      default:
+        break;
+    }
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [([shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]])];
     }
 
     setCount((prevCount) => prevCount + 1);
-    setGameArrHard(shuffled);
-
-    if (clickedArr.indexOf(e.target.getAttribute("src")) !== -1) {
-      setCount((prevCount) => prevCount - 1);
-
-      setTimerIsRunning(false);
-      setClickedArr([]);
-      document.getElementById("loseModal").style.display = "block";
+    switch (difficulty) {
+      case "easy":
+        setGameArrEasy(shuffled);
+        break;
+      case "medium":
+        setGameArrMedium(shuffled);
+        break;
+      case "hard":
+        setGameArrHard(shuffled);
+        break;
+      default:
+        break;
     }
-  };
-
-  const shuffleArrayMedium = (e) => {
-    if (e.target.tagName === "IMG") {
-      setClickedArr((prevClickedArr) => [
-        ...prevClickedArr,
-        e.target.getAttribute("src"),
-      ]);
-    }
-
-    const shuffled = [...gameArrMedium];
-    for (let i = gameArrMedium.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [([shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]])];
-    }
-
-    setCount((prevCount) => prevCount + 1);
-    setGameArrMedium(shuffled);
-
-    if (clickedArr.indexOf(e.target.getAttribute("src")) !== -1) {
-      setCount((prevCount) => prevCount - 1);
-
-      setTimerIsRunning(false);
-      setClickedArr([]);
-      document.getElementById("loseModal").style.display = "block";
-    }
-  };
-
-  const shuffleArrayEasy = (e) => {
-    if (e.target.tagName === "IMG") {
-      setClickedArr((prevClickedArr) => [
-        ...prevClickedArr,
-        e.target.getAttribute("src"),
-      ]);
-    }
-
-    const shuffled = [...gameArrEasy];
-    for (let i = gameArrEasy.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [([shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]])];
-    }
-
-    setCount((prevCount) => prevCount + 1);
-    setGameArrEasy(shuffled);
 
     if (clickedArr.indexOf(e.target.getAttribute("src")) !== -1) {
       setCount((prevCount) => prevCount - 1);
@@ -221,160 +154,107 @@ function Game() {
     }
   }, [timerIsRunning, time, count]);
 
-  const begintimer = () => {
-    setTimerIsRunning(true);
+  const Background = () => {
+    return (
+      <section className={styles.all_content}>
+        <div className={styles.heading_and_newgame}>
+          <h1>Museum Memory Game</h1>
+          <p className={styles.newgame} onClick={newgame}>
+            New Game
+          </p>
+        </div>
+        <div className={styles.time_and_count}>
+          <p className={styles.time}>Time left: {time} seconds</p>
+          <p className={styles.current_count}>Art collected: {count}</p>
+        </div>
+      </section>
+    );
   };
 
   const renderEasyMode = () => {
     return (
-      <div>
-        <section className={styles.all_content}>
-          <ModalContext.Provider
-            value={{
-              value: [gameMode, setGameMode],
-              value2: [timerIsRunning, setTimerIsRunning],
-              value3: [count, setCount],
-              value4: [time, setTime],
-              value5: [howfast, setHowfast],
-            }}
-          >
-            <GameModal />
-            <WinModal />
-            <LoseModal />
-          </ModalContext.Provider>
-          <div className={styles.heading_and_newgame}>
-            <h1>Museum Memory Game</h1>
-            <p className={styles.newgame} onClick={newgame}>
-              New Game
-            </p>
-          </div>
-          <div className={styles.time_and_count}>
-            <h2>Time left: {time} seconds</h2>
-            <p className={styles.current_count}>Art collected: {count}</p>
-          </div>
-          <section className={styles.images_easy} onClick={shuffleArrayEasy}>
-            <img className={styles.neopet_img_easy} src={gameArrEasy[0]} />
-            <img className={styles.neopet_img_easy} src={gameArrEasy[1]} />
-            <img className={styles.neopet_img_easy} src={gameArrEasy[2]} />
-            <img className={styles.neopet_img_easy} src={gameArrEasy[3]} />
-            <img className={styles.neopet_img_easy} src={gameArrEasy[4]} />
-            <img className={styles.neopet_img_easy} src={gameArrEasy[5]} />
-          </section>
-
-          {/* <LoseModal /> */}
-          {/* <WinModal /> */}
+      <section className={styles.all_content}>
+        <ModalContext.Provider
+          value={{
+            value: [gameMode, setGameMode],
+            value2: [timerIsRunning, setTimerIsRunning],
+            value3: [count, setCount],
+            value4: [time, setTime],
+            value5: [howfast, setHowfast],
+          }}
+        >
+          <GameModal />
+          <WinModal />
+          <LoseModal />
+        </ModalContext.Provider>
+        <Background />
+        <section
+          className={styles.images_easy}
+          onClick={(e) => shuffleArray(e, "easy")}
+        >
+          {gameArrEasy.map((item, index) => (
+            <img key={index} className={styles.img_easy} src={item} />
+          ))}
         </section>
-      </div>
+      </section>
     );
   };
 
   const renderMediumMode = () => {
     return (
-      <div>
-        <section className={styles.all_content}>
-          <ModalContext.Provider
-            value={{
-              value: [gameMode, setGameMode],
-              value2: [timerIsRunning, setTimerIsRunning],
-              value3: [count, setCount],
-              value4: [time, setTime],
-              value5: [howfast, setHowfast],
-            }}
-          >
-            <GameModal />
-            <WinModal />
-            <LoseModal />
-          </ModalContext.Provider>
-          <section id="modeModal" className={styles.modal}>
-            <div className={styles.intro_modal}>
-              <div className={styles.headings}>
-                <h3>Choose your difficulty level:</h3>
-                <button onClick={() => submitMode("easy")}>Easy</button>
-                <button onClick={() => submitMode("medium")}>Medium</button>
-                <button onClick={() => submitMode("hard")}>Hard</button>
-              </div>
-            </div>
-          </section>
-          <div className={styles.heading_and_newgame}>
-            <h1>Museum Memory Game</h1>
-            <div>
-              <p className={styles.newgame_medium} onClick={newgame}>
-                New Game
-              </p>
-            </div>
-          </div>
-          <div className={styles.time_and_count}>
-            <p className={styles.time_medium}>Time left: {time} seconds</p>
-            <p className={styles.current_count_medium}>
-              Art collected: {count}
-            </p>
-          </div>
-
-          <section className={styles.images} onClick={shuffleArrayMedium}>
-            <img className={styles.neopet_img_medium} src={gameArrMedium[0]} />
-            <img className={styles.neopet_img_medium} src={gameArrMedium[1]} />
-            <img className={styles.neopet_img_medium} src={gameArrMedium[2]} />
-            <img className={styles.neopet_img_medium} src={gameArrMedium[3]} />
-            <img className={styles.neopet_img_medium} src={gameArrMedium[4]} />
-            <img className={styles.neopet_img_medium} src={gameArrMedium[5]} />
-            <img className={styles.neopet_img_medium} src={gameArrMedium[6]} />
-            <img className={styles.neopet_img_medium} src={gameArrMedium[7]} />
-          </section>
-
-          {/* <LoseModal /> */}
-          {/* <WinModal /> */}
+      <section className={styles.all_content}>
+        <ModalContext.Provider
+          value={{
+            value: [gameMode, setGameMode],
+            value2: [timerIsRunning, setTimerIsRunning],
+            value3: [count, setCount],
+            value4: [time, setTime],
+            value5: [howfast, setHowfast],
+          }}
+        >
+          <GameModal />
+          <WinModal />
+          <LoseModal />
+        </ModalContext.Provider>
+        <Background />
+        <section
+          className={styles.images_medium}
+          onClick={(e) => shuffleArray(e, "medium")}
+        >
+          {gameArrMedium.map((item, index) => (
+            <img key={index} className={styles.img_medium} src={item} />
+          ))}
         </section>
-      </div>
+      </section>
     );
   };
 
   const renderHardMode = () => {
     return (
-      <div>
-        <section className={styles.all_content}>
-          <ModalContext.Provider
-            value={{
-              value: [gameMode, setGameMode],
-              value2: [timerIsRunning, setTimerIsRunning],
-              value3: [count, setCount],
-              value4: [time, setTime],
-              value5: [howfast, setHowfast],
-            }}
-          >
-            <GameModal />
-            <WinModal />
-            <LoseModal />
-          </ModalContext.Provider>
-          <div className={styles.heading_and_newgame}>
-            <h1>Museum Memory Game</h1>
-            <div>
-              <p className={styles.newgame} onClick={newgame}>
-                New Game
-              </p>
-            </div>
-          </div>
-          <div className={styles.time_and_count}>
-            <h2>Time left: {time} seconds</h2>
-            <p className={styles.current_count}>Art collected: {count}</p>
-          </div>
-          <section className={styles.images} onClick={shuffleArrayHard}>
-            <img className={styles.neopet_img} src={gameArrHard[0]} />
-            <img className={styles.neopet_img} src={gameArrHard[1]} />
-            <img className={styles.neopet_img} src={gameArrHard[2]} />
-            <img className={styles.neopet_img} src={gameArrHard[3]} />
-            <img className={styles.neopet_img} src={gameArrHard[4]} />
-            <img className={styles.neopet_img} src={gameArrHard[5]} />
-            <img className={styles.neopet_img} src={gameArrHard[6]} />
-            <img className={styles.neopet_img} src={gameArrHard[7]} />
-            <img className={styles.neopet_img} src={gameArrHard[8]} />
-            <img className={styles.neopet_img} src={gameArrHard[9]} />
-            <img className={styles.neopet_img} src={gameArrHard[10]} />
-            <img className={styles.neopet_img} src={gameArrHard[11]} />
-          </section>
-          {/* <LoseModal /> */}
-          {/* <WinModal /> */}
+      <section className={styles.all_content}>
+        <ModalContext.Provider
+          value={{
+            value: [gameMode, setGameMode],
+            value2: [timerIsRunning, setTimerIsRunning],
+            value3: [count, setCount],
+            value4: [time, setTime],
+            value5: [howfast, setHowfast],
+          }}
+        >
+          <GameModal />
+          <WinModal />
+          <LoseModal />
+        </ModalContext.Provider>
+        <Background />
+        <section
+          className={styles.images_hard}
+          onClick={(e) => shuffleArray(e, "hard")}
+        >
+          {gameArrHard.map((item, index) => (
+            <img key={index} className={styles.img_hard} src={item} />
+          ))}
         </section>
-      </div>
+      </section>
     );
   };
   return (

@@ -49,13 +49,13 @@ function WinModal() {
   return (
     <section id="successModal" className={styles.modal}>
       <div className={styles.modal_win}>
-        <h6>You saved them all! </h6>
+        <h6>You did it!</h6>
         <div className={styles.success_words}>
           <p className={styles.success_words_individual}>
-            And it only took you {howfast} seconds.
+            You accounted for all of the artwork.
           </p>
           <p className={styles.success_words_individual}>
-            Phew. Now they get to go home and rest.
+            And it only took you {howfast} seconds.
           </p>
         </div>
         <div>

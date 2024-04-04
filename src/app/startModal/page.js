@@ -26,49 +26,43 @@ function GameModal() {
   };
 
   return (
-    <div>
-      <section id="openModal" className={styles.modal}>
-        <div className={styles.intro_modal}>
-          <div className={styles.headings}>
-            <h3>Oops!</h3>
-            <h4>
-              It's your first day working at the museum and you fell asleep!
-            </h4>
-          </div>
-          <p className={styles.intro_modal_words}>
-            On top of that, you just discovered someone jumbled up all the art.
-          </p>
-          <p className={styles.intro_modal_words}>
-            Make sure all the paintings are accounted for by clicking each one
-            only ONCE before your boss finds out what happened. Don't click the
-            same one twice!
-          </p>
-          <p className={styles.difficulty_page}>
-            Choose your difficulty level:
-          </p>
-          <div>
-            <button
-              className={styles.buttons_page}
-              onClick={() => exit("easy")}
-            >
-              Easy
-            </button>
-            <button
-              className={styles.buttons_page}
-              onClick={() => exit("medium")}
-            >
-              Medium
-            </button>
-            <button
-              className={styles.buttons_page}
-              onClick={() => exit("hard")}
-            >
-              Hard
-            </button>
-          </div>
+    <section id="openModal" className={styles.modal}>
+      <div className={styles.intro_modal}>
+        <h3>Oops!</h3>
+        <h4>
+          It's your first day working at the museum and you fell asleep! On
+          top of that, you just discovered someone jumbled up all the art.
+        </h4>
+        <p className={styles.intro_modal_words}>
+          Make sure all the paintings are accounted for by clicking each one
+          only ONCE before your boss finds out what happened. Don't click the
+          same one twice!
+        </p>
+        <p className={styles.difficulty_page}>
+          Choose your difficulty level:
+        </p>
+        <div>
+          <button
+            className={styles.buttons_page}
+            onClick={() => exit("easy")}
+          >
+            Easy
+          </button>
+          <button
+            className={styles.buttons_page}
+            onClick={() => exit("medium")}
+          >
+            Medium
+          </button>
+          <button
+            className={styles.buttons_page}
+            onClick={() => exit("hard")}
+          >
+            Hard
+          </button>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
 
