@@ -32,7 +32,7 @@ function LoseModal() {
   return (
     <section id="loseModal" className={styles.modal} onClick={begintimer}>
       <div className={styles.modal_lose}>
-        <h5>You got caught!</h5>
+        <h5>You were caught!</h5>
         <p className={styles.modal_lose_words}>
           You only accounted for {count} art piece(s).
         </p>

@@ -11,36 +11,36 @@ export const ModalContext = React.createContext();
 
 function Game() {
   const [gameArrHard, setGameArrHard] = useState([
-    "https://imagetolink.com/ib/hG4ledtobm.png",
-    "https://imagetolink.com/ib/T4A0n1Jc9k.png",
-    "https://imagetolink.com/ib/5hdb0TKwOt.png",
-    "https://imagetolink.com/ib/sABYVQFCaF.png",
-    "https://imagetolink.com/ib/rCihSQ2lbB.png",
-    "https://imagetolink.com/ib/sY4DQFCWfs.png",
-    "https://imagetolink.com/ib/I0idzCTEvf.png",
-    "https://imagetolink.com/ib/X8b1tora8J.png",
-    "https://imagetolink.com/ib/CUVx2f719J.png",
-    "https://imagetolink.com/ib/U6k4FYP0Xf.png",
-    "https://imagetolink.com/ib/FDxgvwhXXz.png",
-    "https://imagetolink.com/ib/JDhaQ9uYu2.png",
+    "https://imagetolink.com/ib/zQ7XldRFV5.png",
+    "https://imagetolink.com/ib/PjPW8FgxR9.png",
+    "https://imagetolink.com/ib/Jyzc7y2VHQ.png",
+    "https://imagetolink.com/ib/PnteLQhwca.png",
+    "https://imagetolink.com/ib/6oEzuOsCAb.png",
+    "https://imagetolink.com/ib/WsC8YAeV7z.png",
+    "https://imagetolink.com/ib/0ah0OrvzJb.png",
+    "https://imagetolink.com/ib/auuzqFXC3N.png",
+    "https://imagetolink.com/ib/vJYSWD5rNt.png",
+    "https://imagetolink.com/ib/CfgffVfsFX.png",
+    "https://imagetolink.com/ib/CCSwsWMSso.png",
+    "https://imagetolink.com/ib/4FYvNjA6iF.png",
   ]);
   const [gameArrMedium, setGameArrMedium] = useState([
-    "https://imagetolink.com/ib/hG4ledtobm.png",
-    "https://imagetolink.com/ib/T4A0n1Jc9k.png",
-    "https://imagetolink.com/ib/5hdb0TKwOt.png",
-    "https://imagetolink.com/ib/sABYVQFCaF.png",
-    "https://imagetolink.com/ib/rCihSQ2lbB.png",
-    "https://imagetolink.com/ib/sY4DQFCWfs.png",
-    "https://imagetolink.com/ib/I0idzCTEvf.png",
-    "https://imagetolink.com/ib/X8b1tora8J.png",
+    "https://imagetolink.com/ib/zQ7XldRFV5.png",
+    "https://imagetolink.com/ib/PjPW8FgxR9.png",
+    "https://imagetolink.com/ib/Jyzc7y2VHQ.png",
+    "https://imagetolink.com/ib/PnteLQhwca.png",
+    "https://imagetolink.com/ib/6oEzuOsCAb.png",
+    "https://imagetolink.com/ib/WsC8YAeV7z.png",
+    "https://imagetolink.com/ib/0ah0OrvzJb.png",
+    "https://imagetolink.com/ib/auuzqFXC3N.png",
   ]);
   const [gameArrEasy, setGameArrEasy] = useState([
-    "https://imagetolink.com/ib/I0idzCTEvf.png",
-    "https://imagetolink.com/ib/X8b1tora8J.png",
-    "https://imagetolink.com/ib/CUVx2f719J.png",
-    "https://imagetolink.com/ib/U6k4FYP0Xf.png",
-    "https://imagetolink.com/ib/FDxgvwhXXz.png",
-    "https://imagetolink.com/ib/JDhaQ9uYu2.png",
+    "https://imagetolink.com/ib/0ah0OrvzJb.png",
+    "https://imagetolink.com/ib/auuzqFXC3N.png",
+    "https://imagetolink.com/ib/vJYSWD5rNt.png",
+    "https://imagetolink.com/ib/CfgffVfsFX.png",
+    "https://imagetolink.com/ib/CCSwsWMSso.png",
+    "https://imagetolink.com/ib/4FYvNjA6iF.png",
   ]);
   const [clickedArr, setClickedArr] = useState([]);
   const [count, setCount] = useState(0);
@@ -156,16 +156,16 @@ function Game() {
 
   const Background = () => {
     return (
-      <section className={styles.all_content}>
+      <section className={styles.background}>
         <div className={styles.heading_and_newgame}>
-          <h1>Museum Memory Game</h1>
+          <h1>MUSEUM MEMORY GAME</h1>
           <p className={styles.newgame} onClick={newgame}>
-            New Game
+            NEW GAME
           </p>
         </div>
         <div className={styles.time_and_count}>
-          <p className={styles.time}>Time left: {time} seconds</p>
-          <p className={styles.current_count}>Art collected: {count}</p>
+          <p className={styles.time}>TIME LEFT: {time} SECONDS</p>
+          <p className={styles.current_count}>PAINTINGS FOUND: {count}</p>
         </div>
       </section>
     );
