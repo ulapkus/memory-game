@@ -4,7 +4,7 @@ This is a memory card game inspired by famous artwork. The goal is click on a di
 
 Link to project: neopets-game.vercel.app
 
-![Alt text](/public/screenshot.png "Optional title")
+![Memory Game Screenshot](/public/newscreenshot.png "Optional title")
 
 ## How It's Made
 
