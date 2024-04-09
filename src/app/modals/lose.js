@@ -1,21 +1,17 @@
 "use client";
 
-import React, { useEffect, createContext } from "react";
+import React from "react";
 import styles from "../page.module.css";
 import { ModalContext } from "../page";
 
 function LoseModal() {
-  const { value } = React.useContext(ModalContext);
   const { value2 } = React.useContext(ModalContext);
   const { value3 } = React.useContext(ModalContext);
   const { value4 } = React.useContext(ModalContext);
-  const { value5 } = React.useContext(ModalContext);
 
-  const [gameMode, setGameMode] = value;
   const [timerIsRunning, setTimerIsRunning] = value2;
   const [count, setCount] = value3;
   const [time, setTime] = value4;
-  const [howfast, setHowfast] = value5;
 
   function tryagain() {
     const losemodal = document.getElementById("loseModal");

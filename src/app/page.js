@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect, createContext } from "react";
 import styles from "./page.module.css";
-import GameModal from "./startModal/page";
-import LoseModal from "./loseModal/page";
-import WinModal from "./winModal/page";
+import GameModal from "./modals/intro";
+import LoseModal from "./modals/lose";
+import WinModal from "./modals/win";
 
 export const Context = createContext([[], () => {}]);
 export const ModalContext = React.createContext();
