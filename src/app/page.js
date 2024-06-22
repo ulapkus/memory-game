@@ -5,42 +5,81 @@ import styles from "./page.module.css";
 import GameModal from "./modals/intro";
 import LoseModal from "./modals/lose";
 import WinModal from "./modals/win";
+import Image from "next/image";
+import one from "../../public/1.png";
+import two from "../../public/2.png";
+import three from "../../public/3.png";
+import four from "../../public/4.png";
+import five from "../../public/5.png";
+import six from "../../public/6.png";
+import seven from "../../public/7.png";
+import eight from "../../public/8.png";
+import nine from "../../public/9.png";
+import ten from "../../public/10.png";
+import eleven from "../../public/11.png";
+import twelve from "../../public/12.png";
 
 export const Context = createContext([[], () => {}]);
 export const ModalContext = React.createContext();
 
 function Game() {
   const [gameArrHard, setGameArrHard] = useState([
-    "https://i.ibb.co/hXvXHpn/1.png",
-    "https://i.ibb.co/qgGfxqM/9.png",
-    "https://i.ibb.co/3k3nHxh/3.png",
-    "https://i.ibb.co/GFDVDKZ/11.png",
-    "https://i.ibb.co/D1gZw9Y/6.png",
-    "https://i.ibb.co/RHF2nMF/7.png",
-    "https://i.ibb.co/JQ0FNPy/5.png",
-    "https://i.ibb.co/gJpMhKT/2.png",
-    "https://i.ibb.co/y4HcRNY/8.png",
-    "https://i.ibb.co/gmMhh85/10.png",
-    "https://i.ibb.co/G3jH5YQ/4.png",
-    "https://i.ibb.co/jDbBM7x/12.png",
+    one,
+    two,
+    three,
+    four,
+    five,
+    six,
+    seven,
+    eight,
+    nine,
+    ten,
+    eleven,
+    twelve,
+    // "https://i.ibb.co/hXvXHpn/1.png",
+    // "https://i.ibb.co/qgGfxqM/9.png",
+    // "https://i.ibb.co/3k3nHxh/3.png",
+    // "https://i.ibb.co/GFDVDKZ/11.png",
+    // "https://i.ibb.co/D1gZw9Y/6.png",
+    // "https://i.ibb.co/RHF2nMF/7.png",
+    // "https://i.ibb.co/JQ0FNPy/5.png",
+    // "https://i.ibb.co/gJpMhKT/2.png",
+    // "https://i.ibb.co/y4HcRNY/8.png",
+    // "https://i.ibb.co/gmMhh85/10.png",
+    // "https://i.ibb.co/G3jH5YQ/4.png",
+    // "https://i.ibb.co/jDbBM7x/12.png",
   ]);
   const [gameArrMedium, setGameArrMedium] = useState([
-    "https://i.ibb.co/D1gZw9Y/6.png",
-    "https://i.ibb.co/RHF2nMF/7.png",
-    "https://i.ibb.co/JQ0FNPy/5.png",
-    "https://i.ibb.co/gJpMhKT/2.png",
-    "https://i.ibb.co/y4HcRNY/8.png",
-    "https://i.ibb.co/gmMhh85/10.png",
-    "https://i.ibb.co/G3jH5YQ/4.png",
-    "https://i.ibb.co/jDbBM7x/12.png",
+    one,
+    two,
+    three,
+    four,
+    five,
+    six,
+    seven,
+    eight,
+    // "https://i.ibb.co/D1gZw9Y/6.png",
+    // "https://i.ibb.co/RHF2nMF/7.png",
+    // "https://i.ibb.co/JQ0FNPy/5.png",
+    // "https://i.ibb.co/gJpMhKT/2.png",
+    // "https://i.ibb.co/y4HcRNY/8.png",
+    // "https://i.ibb.co/gmMhh85/10.png",
+    // "https://i.ibb.co/G3jH5YQ/4.png",
+    // "https://i.ibb.co/jDbBM7x/12.png",
   ]);
   const [gameArrEasy, setGameArrEasy] = useState([
-    "https://i.ibb.co/hXvXHpn/1.png",
-    "https://i.ibb.co/qgGfxqM/9.png",
-    "https://i.ibb.co/3k3nHxh/3.png",
-    "https://i.ibb.co/GFDVDKZ/11.png",
-    "https://i.ibb.co/D1gZw9Y/6.png",
-    "https://i.ibb.co/RHF2nMF/7.png",
+    one,
+    two,
+    three,
+    four,
+    five,
+    six,
+    // "https://i.ibb.co/hXvXHpn/1.png",
+    // "https://i.ibb.co/qgGfxqM/9.png",
+    // "https://i.ibb.co/3k3nHxh/3.png",
+    // "https://i.ibb.co/GFDVDKZ/11.png",
+    // "https://i.ibb.co/D1gZw9Y/6.png",
+    // "https://i.ibb.co/RHF2nMF/7.png",
   ]);
   const [clickedArr, setClickedArr] = useState([]);
   const [count, setCount] = useState(0);
@@ -48,6 +87,24 @@ function Game() {
   const [time, setTime] = useState(60);
   const [howfast, setHowfast] = useState(0);
   const [gameMode, setGameMode] = useState("hard");
+
+  // const imageseasy = [one, two, three, four, five, six];
+
+  // const imagesmedium = [one, two, three, four, five, six, seven, eight];
+  // const imageshard = [
+  //   one,
+  //   two,
+  //   three,
+  //   four,
+  //   five,
+  //   six,
+  //   seven,
+  //   eight,
+  //   nine,
+  //   ten,
+  //   eleven,
+  //   twelve,
+  // ];
 
   React.useEffect(() => {
     let interval;
@@ -89,13 +146,6 @@ function Game() {
   }
 
   const shuffleArray = (e, difficulty) => {
-    if (e.target.tagName === "IMG") {
-      setClickedArr((prevClickedArr) => [
-        ...prevClickedArr,
-        e.target.getAttribute("src"),
-      ]);
-    }
-
     let shuffled;
     switch (difficulty) {
       case "easy":
@@ -111,12 +161,19 @@ function Game() {
         break;
     }
 
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [([shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]])];
+    if (e.target.tagName === "IMG") {
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [([shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]])];
+      }
+      setCount((prevCount) => prevCount + 1);
+      setClickedArr((prevClickedArr) => [
+        ...prevClickedArr,
+        e.target.getAttribute("src"),
+      ]);
+      console.log(clickedArr);
     }
 
-    setCount((prevCount) => prevCount + 1);
     switch (difficulty) {
       case "easy":
         setGameArrEasy(shuffled);
@@ -158,7 +215,7 @@ function Game() {
     return (
       <section className={styles.background}>
         <div className={styles.heading_and_newgame}>
-          <h1>MUSEUM MEMORY GAME</h1>
+          <h1>MUSEUM MEMORY</h1>
           <p className={styles.newgame} onClick={newgame}>
             NEW GAME
           </p>
@@ -193,7 +250,13 @@ function Game() {
           onClick={(e) => shuffleArray(e, "easy")}
         >
           {gameArrEasy.map((item, index) => (
-            <img key={index} className={styles.img_easy} src={item} />
+            <Image
+              key={index}
+              className={styles.img_easy}
+              src={item}
+              priority
+              alt=""
+            ></Image>
           ))}
         </section>
       </section>
@@ -222,7 +285,13 @@ function Game() {
           onClick={(e) => shuffleArray(e, "medium")}
         >
           {gameArrMedium.map((item, index) => (
-            <img key={index} className={styles.img_medium} src={item} />
+            <Image
+              key={index}
+              className={styles.img_medium}
+              src={item}
+              priority
+              alt=""
+            ></Image>
           ))}
         </section>
       </section>
@@ -251,7 +320,13 @@ function Game() {
           onClick={(e) => shuffleArray(e, "hard")}
         >
           {gameArrHard.map((item, index) => (
-            <img key={index} className={styles.img_hard} src={item} />
+            <Image
+              key={index}
+              className={styles.img_hard}
+              src={item}
+              priority
+              alt=""
+            ></Image>
           ))}
         </section>
       </section>
