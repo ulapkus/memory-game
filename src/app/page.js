@@ -36,18 +36,6 @@ function Game() {
     ten,
     eleven,
     twelve,
-    // "https://i.ibb.co/hXvXHpn/1.png",
-    // "https://i.ibb.co/qgGfxqM/9.png",
-    // "https://i.ibb.co/3k3nHxh/3.png",
-    // "https://i.ibb.co/GFDVDKZ/11.png",
-    // "https://i.ibb.co/D1gZw9Y/6.png",
-    // "https://i.ibb.co/RHF2nMF/7.png",
-    // "https://i.ibb.co/JQ0FNPy/5.png",
-    // "https://i.ibb.co/gJpMhKT/2.png",
-    // "https://i.ibb.co/y4HcRNY/8.png",
-    // "https://i.ibb.co/gmMhh85/10.png",
-    // "https://i.ibb.co/G3jH5YQ/4.png",
-    // "https://i.ibb.co/jDbBM7x/12.png",
   ]);
   const [gameArrMedium, setGameArrMedium] = useState([
     one,
@@ -58,14 +46,6 @@ function Game() {
     six,
     seven,
     eight,
-    // "https://i.ibb.co/D1gZw9Y/6.png",
-    // "https://i.ibb.co/RHF2nMF/7.png",
-    // "https://i.ibb.co/JQ0FNPy/5.png",
-    // "https://i.ibb.co/gJpMhKT/2.png",
-    // "https://i.ibb.co/y4HcRNY/8.png",
-    // "https://i.ibb.co/gmMhh85/10.png",
-    // "https://i.ibb.co/G3jH5YQ/4.png",
-    // "https://i.ibb.co/jDbBM7x/12.png",
   ]);
   const [gameArrEasy, setGameArrEasy] = useState([
     one,
@@ -74,12 +54,6 @@ function Game() {
     four,
     five,
     six,
-    // "https://i.ibb.co/hXvXHpn/1.png",
-    // "https://i.ibb.co/qgGfxqM/9.png",
-    // "https://i.ibb.co/3k3nHxh/3.png",
-    // "https://i.ibb.co/GFDVDKZ/11.png",
-    // "https://i.ibb.co/D1gZw9Y/6.png",
-    // "https://i.ibb.co/RHF2nMF/7.png",
   ]);
   const [clickedArr, setClickedArr] = useState([]);
   const [count, setCount] = useState(0);
@@ -87,24 +61,6 @@ function Game() {
   const [time, setTime] = useState(60);
   const [howfast, setHowfast] = useState(0);
   const [gameMode, setGameMode] = useState("hard");
-
-  // const imageseasy = [one, two, three, four, five, six];
-
-  // const imagesmedium = [one, two, three, four, five, six, seven, eight];
-  // const imageshard = [
-  //   one,
-  //   two,
-  //   three,
-  //   four,
-  //   five,
-  //   six,
-  //   seven,
-  //   eight,
-  //   nine,
-  //   ten,
-  //   eleven,
-  //   twelve,
-  // ];
 
   React.useEffect(() => {
     let interval;
@@ -221,7 +177,10 @@ function Game() {
           </p>
         </div>
         <div className={styles.time_and_count}>
-          <p className={styles.time}>TIME LEFT: {time} SECONDS</p>
+          <div className={styles.time_container}>
+            <p className={styles.time}>TIME LEFT:</p>
+            <p className={styles.time}>{time} SECONDS</p>
+          </div>
           <p className={styles.current_count}>PAINTINGS FOUND: {count}</p>
         </div>
       </section>

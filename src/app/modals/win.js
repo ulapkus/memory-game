@@ -52,7 +52,7 @@ function WinModal() {
         <h6>You did it!</h6>
         <div className={styles.success_words}>
           <p className={styles.success_words_individual}>
-            You accounted for all of the artwork.
+            You accounted for all the artwork.
           </p>
           <p className={styles.success_words_individual}>
             And it only took you {howfast} seconds.
